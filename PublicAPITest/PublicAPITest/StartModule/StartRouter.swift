@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import AsyncDisplayKit
 
 class StartRouter: MainRouter {
     var entryPoint: EntryPoint?
@@ -13,7 +14,7 @@ class StartRouter: MainRouter {
     static func loadModule() -> MainRouter {
         
         let router = StartRouter()
-        var view:MainView = StartView.init(nibName: "StartView", bundle: nil)
+        var view:MainView = StartView.init(node: ASTableNode())
         var presenter:MainPresenter = StartPresenter()
         var interctor:MainInteractor = StartInteractor()
         

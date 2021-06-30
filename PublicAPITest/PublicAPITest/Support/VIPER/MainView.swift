@@ -10,6 +10,5 @@ import Foundation
 protocol MainView {
     
     var presenter: MainPresenter? { get set }
-    
     func refreshUI()
 }

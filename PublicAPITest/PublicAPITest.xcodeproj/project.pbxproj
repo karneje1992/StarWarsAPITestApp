@@ -13,12 +13,10 @@
 		0A85322A268C05AF00A0BFB3 /* MainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A853225268C05AF00A0BFB3 /* MainRouter.swift */; };
 		0A85322B268C05AF00A0BFB3 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A853226268C05AF00A0BFB3 /* MainView.swift */; };
 		0A85322E268C060800A0BFB3 /* Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A85322D268C060800A0BFB3 /* Extention.swift */; };
+		0A853244268C12A400A0BFB3 /* ProfileCellNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A853243268C12A400A0BFB3 /* ProfileCellNode.swift */; };
 		0AB04CC0268C04BC00BA815B /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB04CB5268C04BC00BA815B /* Profile.swift */; };
 		0AB04CC1268C04BC00BA815B /* StartInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB04CB6268C04BC00BA815B /* StartInteractor.swift */; };
 		0AB04CC2268C04BC00BA815B /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB04CB8268C04BC00BA815B /* StartView.swift */; };
-		0AB04CC3268C04BC00BA815B /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB04CB9268C04BC00BA815B /* ProfileTableViewCell.swift */; };
-		0AB04CC4268C04BC00BA815B /* ProfileTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AB04CBA268C04BC00BA815B /* ProfileTableViewCell.xib */; };
-		0AB04CC5268C04BC00BA815B /* StartView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AB04CBB268C04BC00BA815B /* StartView.xib */; };
 		0AB04CC6268C04BC00BA815B /* StartPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB04CBC268C04BC00BA815B /* StartPresenter.swift */; };
 		0AB04CC7268C04BC00BA815B /* StartRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB04CBD268C04BC00BA815B /* StartRouter.swift */; };
 		0AB04CC8268C04BC00BA815B /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB04CBF268C04BC00BA815B /* NetworkManager.swift */; };
@@ -36,12 +34,10 @@
 		0A853225268C05AF00A0BFB3 /* MainRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainRouter.swift; sourceTree = "<group>"; };
 		0A853226268C05AF00A0BFB3 /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		0A85322D268C060800A0BFB3 /* Extention.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extention.swift; sourceTree = "<group>"; };
+		0A853243268C12A400A0BFB3 /* ProfileCellNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCellNode.swift; sourceTree = "<group>"; };
 		0AB04CB5268C04BC00BA815B /* Profile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		0AB04CB6268C04BC00BA815B /* StartInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartInteractor.swift; sourceTree = "<group>"; };
 		0AB04CB8268C04BC00BA815B /* StartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
-		0AB04CB9268C04BC00BA815B /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
-		0AB04CBA268C04BC00BA815B /* ProfileTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileTableViewCell.xib; sourceTree = "<group>"; };
-		0AB04CBB268C04BC00BA815B /* StartView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StartView.xib; sourceTree = "<group>"; };
 		0AB04CBC268C04BC00BA815B /* StartPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartPresenter.swift; sourceTree = "<group>"; };
 		0AB04CBD268C04BC00BA815B /* StartRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartRouter.swift; sourceTree = "<group>"; };
 		0AB04CBF268C04BC00BA815B /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
@@ -110,9 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				0AB04CB8268C04BC00BA815B /* StartView.swift */,
-				0AB04CB9268C04BC00BA815B /* ProfileTableViewCell.swift */,
-				0AB04CBA268C04BC00BA815B /* ProfileTableViewCell.xib */,
-				0AB04CBB268C04BC00BA815B /* StartView.xib */,
+				0A853243268C12A400A0BFB3 /* ProfileCellNode.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -230,9 +224,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0AF7495E268C022400531138 /* LaunchScreen.storyboard in Resources */,
-				0AB04CC4268C04BC00BA815B /* ProfileTableViewCell.xib in Resources */,
 				0AF7495B268C022400531138 /* Assets.xcassets in Resources */,
-				0AB04CC5268C04BC00BA815B /* StartView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,10 +280,10 @@
 				0AB04CC7268C04BC00BA815B /* StartRouter.swift in Sources */,
 				0A85322B268C05AF00A0BFB3 /* MainView.swift in Sources */,
 				0AB04CC8268C04BC00BA815B /* NetworkManager.swift in Sources */,
-				0AB04CC3268C04BC00BA815B /* ProfileTableViewCell.swift in Sources */,
 				0A85322E268C060800A0BFB3 /* Extention.swift in Sources */,
 				0AB04CC0268C04BC00BA815B /* Profile.swift in Sources */,
 				0AB04CC1268C04BC00BA815B /* StartInteractor.swift in Sources */,
+				0A853244268C12A400A0BFB3 /* ProfileCellNode.swift in Sources */,
 				0A85322A268C05AF00A0BFB3 /* MainRouter.swift in Sources */,
 				0AB04CC2268C04BC00BA815B /* StartView.swift in Sources */,
 				0A853228268C05AF00A0BFB3 /* MainInteractor.swift in Sources */,

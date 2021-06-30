@@ -6,100 +6,69 @@
 //
 
 import UIKit
+import AsyncDisplayKit
 
 private let heightForRow:CGFloat = 50.0
 
-class StartView: UIViewController, MainView {
+class StartView: ASDKViewController<ASDisplayNode>, MainView {
 
-    @IBOutlet weak var tableView: UITableView!
+    private var tableNode:ASTableNode{
+        get{
+            node as! ASTableNode
+        }
+    }
     
     var presenter: MainPresenter?
     
-    private var profiles = [StarWarsProfile]()
+    private var profiles:[Profile]{
+        get{
+            guard let startPresenter = presenter as? StartPresenter else { return [] }
+            return startPresenter.profiles
+        }
+    }
+    
+    override init(node: ASDisplayNode) {
+        super.init(node: node)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.delegate = self
-        tableView.dataSource = self
-        
-        tableView.register(.init(nibName: ProfileTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: ProfileTableViewCell.identifier)
+        configTable()
+        view.addSubnode(tableNode)
     }
-    
     
     func refreshUI() {
-        DispatchQueue.main.async {
-            [weak self] in
-            
-            self?.updateProfiles()
-            self?.tableView.reloadData()
-        }
+        tableNode.reloadData()
     }
     
-    private func updateProfiles(){
-        guard let pres = presenter as? StartPresenter else {
-            return
-        }
+    private func configTable(){
         
-        var profiles = [StarWarsProfile]()
-        pres.profiles.forEach({profiles.append(.init(profile: $0))})
-        self.profiles = profiles
+        tableNode.view.separatorStyle = .none
+        tableNode.delegate = self
+        tableNode.dataSource = self
+        tableNode.frame = view.bounds
     }
     
 }
 
-extension StartView: StarWarsProfileDelegate{
+extension StartView: ASTableDelegate, ASTableDataSource {
     
-    func didFinishLoading(profile:StarWarsProfile?) {
+    func numberOfSections(in tableNode: ASTableNode) -> Int {
         
-        DispatchQueue.main.async {
-            [weak self] in
-            
-            guard let item = profile, let indexOf = self?.profiles.firstIndex(where: {$0.profile.id == item.profile.id}) else { return }
-            self?.tableView.beginUpdates()
-            self?.tableView.reloadRows(at: [.init(row: indexOf, section: .zero)], with: .none)
-            self?.tableView.endUpdates()
-        }
-    }
-}
-
-extension StartView: UITableViewDelegate, UITableViewDataSource{
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableNode(_ tableNode: ASTableNode, numberOfRowsInSection section: Int) -> Int {
         
         return profiles.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let item = profiles[indexPath.row]
-        item.delegate = self
-        
-        let pCell = tableView.dequeueReusableCell(withIdentifier: ProfileTableViewCell.identifier, for: indexPath) as! ProfileTableViewCell
-        pCell.nameLabel.text = item.profile.name
-        pCell.genderLabel.text = item.profile.gender
-        
-        return pCell
-    }
+    func tableNode(_ tableNode: ASTableNode, nodeForRowAt indexPath: IndexPath) -> ASCellNode {
 
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
-        return heightForRow
-    }
-    
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        
-        if profiles[indexPath.row].image == nil{
-            
-            profiles[indexPath.row].loadImage()
-            return
-        }else if let pCell = cell as? ProfileTableViewCell, profiles[indexPath.row].image != nil{
-            
-            pCell.activity.stopAnimating()
-            pCell.avatarView.image = profiles[indexPath.row].image
-            return
-        }
+        return ProfileCellNode(profile: profiles[indexPath.row])
     }
 }

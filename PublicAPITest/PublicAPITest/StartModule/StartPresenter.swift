@@ -21,6 +21,7 @@ class StartPresenter: MainPresenter {
     var view: MainView?
     var profiles:[Profile] = []{
         didSet{
+            
             view?.refreshUI()
         }
     }
